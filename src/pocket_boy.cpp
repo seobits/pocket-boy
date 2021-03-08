@@ -2,10 +2,11 @@
 
 PocketBoy::PocketBoy(){
     this->_cpu = new CPU();
-    this->_bios = this->_loadRomData("rom/bios.gb");
+    this->_memory = new Memory();
+    this->_bios = this->_loadExecutableBinary("rom/bios.gb");
 }
 
-std::vector<char>* PocketBoy::_loadRomData(const char* filename) {
+std::vector<char>* PocketBoy::_loadExecutableBinary(const char* filename) {
     std::basic_ifstream<char> input(filename, std::ios::in | std::ios::binary);
     std::vector<char>* data;
     if(input){
