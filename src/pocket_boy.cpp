@@ -1,9 +1,12 @@
 #include "pocket_boy.h"
 
 PocketBoy::PocketBoy(){
-    this->_cpu = new CPU();
-    this->_memory = new Memory();
     this->_bios = this->_loadExecutableBinary("rom/bios.gb");
+}
+
+void PocketBoy::Boot(){
+    uint8_t opcode = this->_mmu.fetchOpcode(this->_cpu.registers.PC);
+    this->_cpu.Execute(opcode);
 }
 
 std::vector<char>* PocketBoy::_loadExecutableBinary(const char* filename) {
