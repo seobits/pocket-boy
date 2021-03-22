@@ -18,7 +18,7 @@ struct InstructionSet {
             "LD BC, d16", 0x01, 3, 12, &InstructionSet::_0x01_LD_BC_D16,
             "LD (BC),A", 0x02, 1, 8, &InstructionSet::_0x02_LD_BC_A,
             "INC BC", 0x03, 1, 8, &InstructionSet::_0x03_INC_BC,
-            "INC BC", 0x03, 1, 4, &InstructionSet::_0x04_INC_B,
+            "INC B", 0x04, 1, 4, &InstructionSet::_0x04_INC_B,
         };
     
     private:
