@@ -9,6 +9,16 @@ struct Register{
             uint8_t high: 8;
         };
     };
+
+    Register& operator+=(const uint16_t& rhs){
+        this->value = rhs;
+        return *this;
+    }
+
+    Register& operator=(const uint16_t& rhs){
+        this->value = rhs;
+        return *this;
+    }
 };
 
 struct CpuRegisters {

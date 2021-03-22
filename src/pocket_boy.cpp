@@ -5,8 +5,7 @@ PocketBoy::PocketBoy(){
 }
 
 void PocketBoy::Boot(){
-    uint8_t opcode = this->_mmu.fetchOpcode(this->_cpu.registers.PC);
-    this->_cpu.Execute(opcode);
+    this->_cpu.Execute(this->_mmu);
 }
 
 std::vector<char>* PocketBoy::_loadExecutableBinary(const char* filename) {

@@ -5,9 +5,10 @@
 
 class Cpu {
     public: 
-        CpuRegisters registers;
         Cpu();
-        void Execute(const uint8_t& opcode);
+        CpuRegisters registers;
+        void Execute(MemoryManagementUnit& mmu);
     private: 
         const InstructionSet _instructionSet;
+        uint16_t _cycleCounter = 0;
 };
