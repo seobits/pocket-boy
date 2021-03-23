@@ -28,4 +28,9 @@ struct CpuRegisters {
     Register HL;
     Register SP;
     Register PC;
+
+    const uint8_t FLAG_CARRY = 0b00010000;
+    const uint8_t FLAG_HALF_CARRY = 0b00100000;
+    const uint8_t FLAG_SUBSTRACT = 0b01000000;
+    const uint8_t FLAG_ZERO = 0b10000000;
 };

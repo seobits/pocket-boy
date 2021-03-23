@@ -35,15 +35,15 @@ struct InstructionSet {
         }
         static inline void _0x04_INC_B(MemoryManagementUnit& mmu, uint8_t* instructionAddress, const Instruction& instruction, CpuRegisters& registers){
             if((registers.BC.high & 0xF) == 0xF){
-                registers.AF.high |= 0b0010;
+                registers.AF.low |= registers.FLAG_HALF_CARRY;
             }
 
             registers.BC.high++;
 
             if(registers.BC.high == 0){
-                registers.AF.high |= 0b1000;
+                registers.AF.low |= registers.FLAG_ZERO;
             }
 
-            registers.AF.high &= 0b1011;
+            registers.AF.low &= ~registers.FLAG_SUBSTRACT;
         }
 };
